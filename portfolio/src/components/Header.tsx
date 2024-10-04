@@ -48,7 +48,7 @@ const Header = () => {
 
           {/* Title */}
           <div className="md:flex flex-center items-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold mt-5 md:mt-6 lg:pl-10">
+            <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-semibold mt-5 md:mt-6 lg:pl-10">
               Dan Martin
             </h1>
           </div>
@@ -124,7 +124,7 @@ const Header = () => {
               >
                 <div className="menu-link-item-holder flex flex-col mt-24">
                   <a
-                    className="text-7xl  font-normal mt-5 text-outline cursor-pointer"
+                    className="text-white text-7xl font-normal mt-5 text-outline cursor-pointer"
                     data-text="HOME"
                     onClick={() => {
                       window.location.href = "#home";
@@ -133,7 +133,7 @@ const Header = () => {
                     HOME
                   </a>
                   <a
-                    className="text-7xl  font-normal mt-5 text-outline  cursor-pointer"
+                    className="text-white text-7xl  font-normal mt-5 text-outline  cursor-pointer"
                     data-text="ABOUT"
                     onClick={() => {
                       window.location.href = "#about";
@@ -142,7 +142,7 @@ const Header = () => {
                     ABOUT
                   </a>
                   <a
-                    className="text-7xl  font-normal mt-5 text-outline  cursor-pointer" 
+                    className="text-white text-7xl  font-normal mt-5 text-outline  cursor-pointer" 
                     data-text="PROJECTS"
                     onClick={() => {
                       window.location.href = "#projects";
@@ -151,7 +151,7 @@ const Header = () => {
                     PROJECTS
                   </a>
                   <a
-                    className="text-7xl  font-bold mt-5 text-outline  cursor-pointer"
+                    className="text-white text-7xl  font-bold mt-5 text-outline  cursor-pointer"
                     data-text="CONTACT"
                     onClick={() => {
                       window.location.href = "#contact";

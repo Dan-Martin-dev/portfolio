@@ -5,7 +5,11 @@ export default {
     './src/**/*.{js,ts,jsx,tsx}', // This should include your Header component
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customRed: '#E50914', // Adding custom red color
+      },
+    },
   },
   plugins: [],
 }
