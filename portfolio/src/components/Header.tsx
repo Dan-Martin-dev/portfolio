@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import "/home/vare/project/landings_1/portfolio/portfolio/src/styles/Header.css";
 import { gsap } from "gsap";
+import '/home/vare/project/landings_1/portfolio/portfolio/src/App.css'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,16 +40,16 @@ const Header = () => {
     <nav
       className={`${
         isMenuOpen ? "h-screen overflow-hidden" : ""
-      }  fixed top-0 left-0 w-full bg-black shadow-lg z-10 sm:block md:static lg:static`}
+      }  fixed top-0 left-0 w-full bg-customRed font-bebas shadow-lg z-10 sm:block md:static lg:static`}
     >
-      <div ref={container} className="mx-auto lg:mx-0 px-5 sm:px-6 ">
+      <div ref={container} className=" mx-auto lg:mx-0 px-5 sm:px-6 ">
         
         {/* Container */}
         <div className="flex justify-between m-3 md:m-10 h-16 lg:m-13">
 
           {/* Title */}
           <div className="md:flex flex-center items-center">
-            <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-semibold mt-5 md:mt-6 lg:pl-10">
+            <h1 data-text="Dan Martin" className="text-white text-outline text-5xl md:text-6xl lg:text-7xl font-semibold mt-5 md:mt-6 ">
               Dan Martin
             </h1>
           </div>
@@ -59,13 +60,13 @@ const Header = () => {
             {/* Hamburger Menu */}
             <button
               onClick={toggleMenu}
-              className="text-white font-thin focus:outline-none md:hidden mr-[-40px] p-1 z-20"
+              className="text-white font-thin focus:outline-none md:hidden mr-[-40px] mb-3 p-1 z-20"
             >
               {/* Conditional rendering of Hamburger Icon or Close Icon */}
               {isMenuOpen ? (
-                <h1 data-text="CLOSE" className="text-2xl text-white font-bold text-outline mt-10">CLOSE</h1>
+                <h1 data-text="CLOSE" className="text-2xl text-outline text-white font-bold text-outline mt-10">CLOSE</h1>
               ) : (
-                <AiOutlineMenu className="w-10 h-10 mt-5" />
+                <h1 data-text="MENU" className="text-2xl text-outline text-white font-bold text-outline mt-10">MENU</h1>
               )}
             </button>
 
@@ -81,7 +82,8 @@ const Header = () => {
                   onClick={() => {
                     window.location.href = "#home";
                   }}
-                  className="hidden md:block  text-white text-outline  hover:text-customRed"
+                  data-text="home"
+                  className="text-outline hidden md:block  text-white text-outline  hover:text-customRed"
                 >
                   Home
                 </a>
@@ -90,7 +92,8 @@ const Header = () => {
                   onClick={() => {
                     window.location.href = "#about";
                   }}
-                  className="hidden md:block  text-white text-outline  hover:text-customRed"
+                  data-text="About"
+                  className="text-outline hidden md:block  text-white text-outline  hover:text-customRed"
                 >
                   About
                 </a>
@@ -99,7 +102,9 @@ const Header = () => {
                   onClick={() => {
                     window.location.href = "#projects";
                   }}
-                  className="hidden md:block  text-white text-outline  hover:text-customRed"
+                  data-text="Projects"
+
+                  className="text-outline hidden md:block  text-white text-outline  hover:text-customRed"
                 >
                   Projects
                 </a>
@@ -108,7 +113,8 @@ const Header = () => {
                   onClick={() => {
                     window.location.href = "#contact";
                   }}
-                  className="hidden md:block  text-white text-outline  hover:text-customRed"
+                  data-text="Contact"
+                  className="text-outline hidden md:block  text-white text-outline  hover:text-customRed"
                 >
                   Contact
                 </a>

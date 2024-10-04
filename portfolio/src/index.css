@@ -2,3 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* src/styles/index.css */
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('/home/vare/project/landings_1/portfolio/portfolio/src/assets/fonts/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('/home/vare/project/landings_1/portfolio/portfolio/src/assets/fonts/BebasNeue-Regular.ttf') format('truetype'); /* Use a different file if you have a bold version */
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ExposeRegular';
+    src: url('/home/vare/project/landings_1/portfolio/portfolio/src/assets/fonts/Expose-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Example usage */
+.font-bebas {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.font-expose {
+    font-family: 'ExposeRegular', sans-serif;
+}
