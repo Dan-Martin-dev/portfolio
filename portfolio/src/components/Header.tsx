@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
 import "/home/vare/project/landings_1/portfolio/portfolio/src/styles/Header.css";
 import { gsap } from "gsap";
 import '/home/vare/project/landings_1/portfolio/portfolio/src/App.css'
@@ -40,7 +39,7 @@ const Header = () => {
     <nav
       className={`${
         isMenuOpen ? "h-screen overflow-hidden" : ""
-      }  fixed top-0 left-0 w-full bg-customRed font-bebas shadow-lg z-10 sm:block md:static lg:static`}
+      }  fixed top-0 left-0 w-full bg-customRed font-bebas  z-10 sm:block md:static lg:static`}
     >
       <div ref={container} className=" mx-auto lg:mx-0 px-5 sm:px-6 ">
         

@@ -4,10 +4,8 @@
 
 .text-outline {
   font-weight: bold;
-  /* Optional: makes the text bold */
   position: relative;
   z-index: 1;
-  /* Ensure the text is above the outline */
 }
 
 .text-outline::before {
