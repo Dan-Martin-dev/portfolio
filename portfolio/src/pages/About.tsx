@@ -15,7 +15,7 @@ export default function About() {
           {/* Image */}
           <div className="rounded-full overflow-hidden  w-[220px] md:h-[220px] lg:w-[280px] lg:h-[280px] mx-10">
             <img 
-              src="/portfolio/src/assets/img/profile.jpg"
+              src="/portfolio/img/profile.jpg" 
               alt="Dan Martin" 
               className="object-cover"
             />
