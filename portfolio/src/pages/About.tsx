@@ -23,7 +23,7 @@ export default function About() {
 
           {/* SM Name */}
           <div className='md:hidden p-4'>
-            <h2 className="text-5xl  font-bold">Dan Martin</h2>
+            <h2 className="text-5xl  font-bold">Dan</h2>
             <h2 className="text-3xl text-customRed  font-semibold">Web developer</h2>
           </div>
 
