@@ -1,28 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .text-outline {
-  font-weight: bold;
-  position: relative;
-  z-index: 1;
+    font-weight: bold;
+    /* Optional: makes the text bold */
+    position: relative;
+    z-index: 1;
+    /* Ensure the text is above the outline */
 }
 
 .text-outline::before {
-  content: attr(data-text);
-  /* Use the same text as the original */
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  color: black;
-  /* Outline color */
-  font-weight: bold;
-  /* Optional: match font weight */
-  text-shadow:
-    1px 1px 0 #000,
-    3px 3px 0 #000,
-    2px 2px 0 #000,
-    5px 5px #000;
-  /* Increase values for more depth */
+    content: attr(data-text);
+    /* Use the same text as the original */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    color: black;
+    /* Outline color */
+    font-weight: bold;
+    /* Optional: match font weight */
+    text-shadow:
+        1px 1px 0 #000,
+        3px 3px 0 #000,
+        2px 2px 0 #000,
+        5px 5px #000;
+    /* Increase values for more depth */
 }

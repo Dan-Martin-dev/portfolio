@@ -1,9 +1,17 @@
+import '/home/vare/project/landings_1/portfolio/portfolio/src/styles/Home.css';
+import { interiors } from '../data/data';  // Relative path to the data file
 
 export default function Home() {  
 
   return (
-    <div className="relative w-full h-[calc(100vh-10px)] flex items-center justify-center mt-20 md:mt-0 p-0 overflow-hidden">
-      
+    <div className="w-full h-[calc(100vh-10px)] ">
+      <ul>
+        {interiors.map((interior, index) => (
+          <li key={index}>
+          <p data-text={interior.name} className='text-outline text-white font-bebas text-2xl font-bold'>{interior.name} </p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 } 

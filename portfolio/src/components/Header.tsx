@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import "/home/vare/project/landings_1/portfolio/portfolio/src/styles/Header.css";
 import { gsap } from "gsap";
-import '/home/vare/project/landings_1/portfolio/portfolio/src/App.css'
-
+import '/home/vare/project/landings_1/portfolio/portfolio/src/styles/Header.css'
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const tl = useRef<gsap.core.Timeline | null>(null); // Initialize as null
@@ -63,9 +61,9 @@ const Header = () => {
             >
               {/* Conditional rendering of Hamburger Icon or Close Icon */}
               {isMenuOpen ? (
-                <h1 data-text="CLOSE" className="text-2xl text-outline text-white font-bold text-outline mt-10">CLOSE</h1>
+                <h1 data-text="CLOSE" className="text-2xl text-white font-bold text-outline mt-10">CLOSE</h1>
               ) : (
-                <h1 data-text="MENU" className="text-2xl text-outline text-white font-bold text-outline mt-10">MENU</h1>
+                <h1 data-text="MENU" className="text-2xl text-white font-bold text-outline mt-10">MENU</h1>
               )}
             </button>
 
@@ -120,7 +118,7 @@ const Header = () => {
               </div>
 
               {/* Smart menu  */}
-              <div
+              <div  
                 className={`${
                   isMenuOpen
                     ? "md:hidden fixed top-0 left-0 w-screen h-screen bg-customRed text-start justify-start pl-10 z-10 flex flex-col gap-4 "
