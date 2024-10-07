@@ -8,7 +8,7 @@ export default function Home() {
       <ul>
         {interiors.map((interior, index) => (
           <li key={index}>
-          <p data-text={interior.name} className='text-outline text-white font-bebas text-2xl font-bold'>{interior.name} </p>
+          <p data-text={interior.name} className='text-outline text-white font-bebas text-5xl font-bold'>{interior.name} </p>
           </li>
         ))}
       </ul>
