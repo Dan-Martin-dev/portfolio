@@ -3,28 +3,14 @@ import { interiors } from "./data.js"; // Importing an array of data from 'data.
 document.addEventListener("DOMContentLoaded", function () {
 
   // section 1
-  // This function runs when the DOM is fully loaded.
   const cursor = document.querySelector(".cursor");
-  // Selecting the element with the class 'cursor' which is used to display images when hovering over items.
-
   const gallery = document.querySelector(".gallery");
-  // Selecting the element with the class 'gallery', which will contain the items laid out in a circular pattern.
-
   const numberOfTimes = interiors.length;
-  // Getting the number of items from the interiors array (data).
-
   const radius = 1100;
-  // Setting the radius for positioning the items in a circular layout. Larger radius = more space between items.
-
   const body = document.body;
-
   const centerX = window.innerWidth / 2;
   const centerY = window.innerHeight / 2;
-  // Calculating the center of the window, where the items will be positioned around.
-
   const angleIncrement = (2 * Math.PI) / numberOfTimes;
-
-
   
   // Calculating the angle between each item, dividing the full circle (2π radians) by the number of items.
 
