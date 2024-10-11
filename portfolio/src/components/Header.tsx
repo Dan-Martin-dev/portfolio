@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import '/home/vare/project/landings_1/portfolio/portfolio/src/styles/Header.css'
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const tl = useRef<gsap.core.Timeline | null>(null); // Initialize as null
@@ -39,7 +40,7 @@ const Header = () => {
         isMenuOpen ? "h-screen overflow-hidden" : ""
       }  fixed top-0 left-0 w-full bg-customRed font-bebas  z-10 sm:block md:static lg:static`}
     >
-      <div ref={container} className=" mx-auto lg:mx-0 px-5 sm:px-6 ">
+      <div ref={container} className="mx-auto lg:mx-0 px-5 sm:px-6 ">
         
         {/* Container */}
         <div className="flex justify-between m-3 md:m-10 h-16 lg:m-13">

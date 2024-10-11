@@ -1,5 +1,5 @@
 export const interiors = [
-  { id: 1, name: "Lunar Horizon Lounge" },
+  { id: 1, name: "First Lunar Horizon Lounge" },
   { id: 2, name: "Freaky Encounter" },
   { id: 3, name: "Ecommerce Barnes Industries" },
   { id: 4, name: "Orange Bottle Plastic" },
@@ -58,5 +58,5 @@ export const interiors = [
   { id: 57, name: "Nose to the Grindstone" },
   { id: 58, name: "Out of Left Field" },
   { id: 59, name: "Pulling the Strings" },
-  { id: 60, name: "Question of Time" }
+  { id: 60, name: "Last Question of Time" }
 ];
