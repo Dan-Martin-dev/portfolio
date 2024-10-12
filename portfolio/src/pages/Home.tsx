@@ -96,32 +96,64 @@ const Home: React.FC = () => {
   // Function to handle hover and show image
   const handleMouseEnter = (itemName: string) => {
     setHoveredItem(itemName);  // Track the hovered item name
-  };
+    const imgSrc = `/portfolio/img/${itemName}.jpg`; // Updated path
+    console.log('Image source:', imgSrc);  // Debug: Check if the path is correct
 
-  const handleMouseLeave = () => {
-    setHoveredItem(null);  // Reset the hovered item
+    console.log(imgSrc)
+
+    const img = document.createElement("img");
+    img.src = imgSrc;
+    img.style.clipPath = "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"; // Initially hide the image
+    cursorRef.current?.appendChild(img); // Add the image to the cursor
+
+    gsap.to(img, {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", // Animate reveal
+      duration: 1,
+      ease: "power3.out",
+    });
   };
-  console.log(hoveredItem); // Check if the item name is being set correctly
+  // Function to handle hover and leave image
+  const handleMouseLeave = () => {
+    const imgs = cursorRef.current?.getElementsByTagName("img"); // Get all images inside the cursor
+
+    if (imgs && imgs.length) {
+      const lastImg = imgs[imgs.length - 1]; // Reference the last image element
+
+      Array.from(imgs).forEach((img) => {
+        if (img !== lastImg) {
+          gsap.to(img, {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)", // Hide previous images
+            duration: 1,
+            ease: "power3.out",
+            onComplete: () => {
+              setTimeout(() => {
+                img.remove(); // Remove previous images after a delay
+              }, 1000);
+            },
+          });
+        }
+      });
+
+      gsap.to(lastImg, {
+        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)", // Hide the last image
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.25,
+      });
+    }
+    setHoveredItem(null); // Reset the hovered item
+  };
 
   return (
     <div className='w-full max-h-min font-bebas'>
-      <div ref={cursorRef} className="cursor">
-        {hoveredItem && (
-          <img 
-            src={`/img/${hoveredItem}.jpg`} // Updated path
-            alt={hoveredItem} 
-            className="hover-image" 
-            style={{ zIndex: 9999 }} // High z-index for testing
-          />
-        )}
-      </div>
+      <div ref={cursorRef} className="cursor"></div> {/* Custom cursor area */}
       <div className="gallery-container">
         <div ref={galleryRef} className="gallery">
           {interiors.map((interior, index) => {
             const angle = index * (2 * Math.PI) / interiors.length;
             const x = window.innerWidth * 0.25 + 1100 * Math.cos(angle);  // Keep items on the left side
             const y = window.innerHeight / 2 + 1100 * Math.sin(angle);
-            const rotation = (angle * 180) / Math.PI;
+            const rotation = (angle * 100) / Math.PI;
 
             return (
               <div
@@ -131,10 +163,10 @@ const Home: React.FC = () => {
                   position: "absolute",
                   transform: `translate(${x}px, ${y}px) rotate(${rotation}deg)`,
                 }}
-                onMouseEnter={() => handleMouseEnter(interior.name)}  // Trigger hover event
+                onMouseEnter={() => handleMouseEnter(interior.id)}  // Trigger hover event
                 onMouseLeave={handleMouseLeave}  // Reset on leave
               >
-                <p className="text-outliner text-6xl text-white" data-text={interior.name}>
+                <p className="text-outliner text-5xl text-white" data-text={interior.name}>
                   {interior.name} <span>({Math.floor(Math.random() * 50) + 1})</span>
                 </p>
               </div>
