@@ -1,32 +1,53 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import { interiors } from '../data/data';  // Adjust the path to your data
-import '/home/vare/project/landings_1/portfolio/portfolio/src/styles/Home.css';
+import { interiors } from "../data/data"; // Adjust the path to your data
+import "/home/vare/project/landings_1/portfolio/portfolio/src/styles/Home.css";
 
 const Home: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLBodyElement>(document.body as HTMLBodyElement);
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);  // Track the hovered item
 
   useLayoutEffect(() => {
     const cursor = cursorRef.current;
     const gallery = galleryRef.current;
     const radius = 1100;
-    let centerX = window.innerWidth * 0.25; // Keep the circle on the left side (25% of the screen width)
+    let centerX = window.innerWidth * 0.25; // Default for large screens
     const centerY = window.innerHeight / 2;
     const angleIncrement = (2 * Math.PI) / interiors.length;
 
-    // Set initial positions without animation
     const setInitialPositions = () => {
-      centerX = window.innerWidth * 0.25;  // Dynamically adjust the X position based on window width
+      // Dynamically adjust the X position based on window width
+      if (window.innerWidth <= 375) {
+        centerX = window.innerWidth * -1.5;
+      } else if (window.innerWidth <= 390) {
+        centerX = window.innerWidth * -1.4;
+      } else if (window.innerWidth <= 428) {
+        centerX = window.innerWidth * -1.1;
+      } else if (window.innerWidth <= 480) {
+        centerX = window.innerWidth * -0.9;
+      } else if (window.innerWidth <= 600) {
+        centerX = window.innerWidth * -0.5;
+      } else if (window.innerWidth <= 768) {
+        centerX = window.innerWidth * -0.2;
+      } else if (window.innerWidth <= 840) {
+        centerX = window.innerWidth * 0.1;
+      } else if (window.innerWidth <= 1280) {
+        centerX = window.innerWidth * 0.20;
+      } else if (window.innerWidth <= 1366) {
+        centerX = window.innerWidth * 0.25;
+      } else if (window.innerWidth <= 1440) {
+        centerX = window.innerWidth * 0.30;
+      }else if (window.innerWidth <= 1920) {
+        centerX = window.innerWidth * 0.50;
+      }
+
       const items = gallery?.getElementsByClassName("item") || [];
       Array.from(items).forEach((item, index) => {
         const angle = index * angleIncrement;
         const x = centerX + radius * Math.cos(angle);
         const y = centerY + radius * Math.sin(angle);
         const rotation = (angle * 180) / Math.PI;
-
         gsap.set(item, {
           x: `${x}px`,
           y: `${y}px`,
@@ -36,7 +57,6 @@ const Home: React.FC = () => {
       });
     };
 
-    // Handle scroll event to update positions with animation
     const updatePosition = () => {
       const scrollAmount = window.scrollY * 0.001;
       const items = gallery?.getElementsByClassName("item") || [];
@@ -56,24 +76,21 @@ const Home: React.FC = () => {
       });
     };
 
-    // Adjust body height to ensure scrolling works properly
     const adjustBodyHeight = () => {
       const requiredHeight = radius * 2 + window.innerHeight;
       bodyRef.current.style.height = `${requiredHeight}px`;
     };
 
-    // Initialize positions and set body height
     adjustBodyHeight();
     setInitialPositions();
 
     window.addEventListener("resize", () => {
-      centerX = window.innerWidth * 0.25;  // Recalculate centerX on resize
+      setInitialPositions(); // Update positions after resizing
       adjustBodyHeight();
-      setInitialPositions();  // Update positions after resizing
     });
+
     window.addEventListener("scroll", updatePosition);
 
-    // Handle mouse movement for the custom cursor
     const handleMouseMove = (e: MouseEvent) => {
       gsap.to(cursor, {
         x: e.clientX - 150,
@@ -86,20 +103,17 @@ const Home: React.FC = () => {
     document.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      // Clean up event listeners on component unmount
       window.removeEventListener("resize", adjustBodyHeight);
       window.removeEventListener("scroll", updatePosition);
       document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
-  // Function to handle hover and show image
   const handleMouseEnter = (itemName: string) => {
-    setHoveredItem(itemName);  // Track the hovered item name
     const imgSrc = `/portfolio/img/${itemName}.jpg`; // Updated path
-    console.log('Image source:', imgSrc);  // Debug: Check if the path is correct
+    console.log("Image source:", imgSrc); // Debug: Check if the path is correct
 
-    console.log(imgSrc)
+    console.log(imgSrc);
 
     const img = document.createElement("img");
     img.src = imgSrc;
@@ -141,17 +155,16 @@ const Home: React.FC = () => {
         delay: 0.25,
       });
     }
-    setHoveredItem(null); // Reset the hovered item
   };
 
   return (
-    <div className='w-full max-h-min font-bebas'>
+    <div className="w-full max-h-min font-bebas">
       <div ref={cursorRef} className="cursor"></div> {/* Custom cursor area */}
       <div className="gallery-container">
         <div ref={galleryRef} className="gallery">
           {interiors.map((interior, index) => {
-            const angle = index * (2 * Math.PI) / interiors.length;
-            const x = window.innerWidth * 0.25 + 1100 * Math.cos(angle);  // Keep items on the left side
+            const angle = (index * (2 * Math.PI)) / interiors.length;
+            const x = window.innerWidth * 0.25 + 1100 * Math.cos(angle); // Keep items on the left side
             const y = window.innerHeight / 2 + 1100 * Math.sin(angle);
             const rotation = (angle * 100) / Math.PI;
 
@@ -163,11 +176,15 @@ const Home: React.FC = () => {
                   position: "absolute",
                   transform: `translate(${x}px, ${y}px) rotate(${rotation}deg)`,
                 }}
-                onMouseEnter={() => handleMouseEnter(interior.id)}  // Trigger hover event
-                onMouseLeave={handleMouseLeave}  // Reset on leave
+                onMouseEnter={() => handleMouseEnter(interior.id.toString())} // Convert id to string
+                onMouseLeave={handleMouseLeave} // Reset on leave
               >
-                <p className="text-outliner text-5xl text-white" data-text={interior.name}>
-                  {interior.name} <span>({Math.floor(Math.random() * 50) + 1})</span>
+                <p
+                  className="text-outliner text-5xl text-white"
+                  data-text={interior.name}
+                >
+                  {interior.name}{" "}
+                  <span>({Math.floor(Math.random() * 50) + 1})</span>
                 </p>
               </div>
             );
