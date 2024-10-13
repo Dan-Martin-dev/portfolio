@@ -4,10 +4,10 @@ export default function About() {
 
   return (
     /* frame */
-    <div id="about" className="bg-strongRed mx-5 md:mx-28 lg:mx-48 p-6 mt-10 md:mt-0">
+    <div id="about" className="bg-strongRed mt-16 md:mt-0 md:mx-10  lg:mx-40 xl:mx-64 ">
       
       {/* container */}
-      <div className="flex flex-col xl:flex-row xl:align-middle xl:justify-center xl:items-center text-white xl:text-left p-6">
+      <div className="flex flex-col md:flex-row md:align-middle md:justify-center md:items-center text-white md:text-left p-6">
 
         {/* Image and Name */}
         <div className="flex flex-col items-center">
