@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .text-outline {
     font-weight: bold;
     /* Optional: makes the text bold */
