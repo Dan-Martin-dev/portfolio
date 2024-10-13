@@ -285,7 +285,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-h-min font-bebas">
+    <div className="bg-strongRed w-full max-h-min font-bebas">
       <div ref={cursorRef} className="cursor"></div> {/* Custom cursor area */}
       <div className="gallery-container">
         <div ref={galleryRef} className="gallery">

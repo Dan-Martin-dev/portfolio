@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div className="bg-customRed flex flex-col max-h-full w-full ">
+      <div className=" flex flex-col max-h-full w-full ">
         <Header /> {/* Header is displayed on all routes */}
         <Routes>
           <Route path="/portfolio/" element={<Home />} />

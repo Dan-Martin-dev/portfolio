@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        customRed: '#E50914', // Adding custom red color
+        strongRed:'#EF0307 ' // Adding custom red color
       },
     },
   },

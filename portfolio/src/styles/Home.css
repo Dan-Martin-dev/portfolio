@@ -11,10 +11,9 @@
 html,
 body {
     width: 100%;
-    /* 100% of viewport width */
     min-height: 100%;
-    /* 100% of viewport height */
-    background-color: rgb(229, 9, 20)
+    background-color:rgb(239, 3, 7);
+
 }
 
 .text-outliner {

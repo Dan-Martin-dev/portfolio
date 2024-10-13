@@ -4,7 +4,7 @@ export default function About() {
 
   return (
     /* frame */
-    <div id="about" className="mx-5 md:mx-28 lg:mx-48 p-6 rounded-lg shadow-lg mt-10 md:mt-0">
+    <div id="about" className="bg-strongRed mx-5 md:mx-28 lg:mx-48 p-6 rounded-lg shadow-lg mt-10 md:mt-0">
       
       {/* container */}
       <div className="flex flex-col xl:flex-row xl:align-middle xl:justify-center xl:items-center text-white text-center xl:text-left p-6">

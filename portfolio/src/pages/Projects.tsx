@@ -29,7 +29,7 @@ const Projects = () => {
           {/* Text */}
           <div className="text-start align-top">
             {/* Name */}
-            <h2 className="text-6xl  font-bold text-customRed pb-6">
+            <h2 className="text-6xl  font-bold text-strongRed pb-6">
               Nest.js ecommerce website
             </h2>
 

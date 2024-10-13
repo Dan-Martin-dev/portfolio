@@ -24,11 +24,11 @@ const Header = () => {
     }
   };
 
-  const handleAboutClick = (e:unknown) => {
+  const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault(); // Prevent default anchor behavior
     navigate("/portfolio/about"); // Navigate to the /portfolio/about route
   };
-  const handleHomeClick = (e:unknown) => {
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault(); // Prevent default anchor behavior
     navigate("/portfolio/"); // Navigate to the /portfolio/about route
   };
@@ -47,7 +47,7 @@ const Header = () => {
     <nav
       className={`${
         isMenuOpen ? "h-screen overflow-hidden" : ""
-      }  fixed top-0 left-0 w-full bg-customRed font-bebas  z-10 sm:block md:static lg:static`}
+      }  fixed top-0 left-0 w-full bg-strongRed font-bebas  z-10 sm:block md:static lg:static`}
     >
       <div ref={container} className="mx-auto lg:mx-0 px-5 sm:px-6 ">
         {/* Container */}
@@ -96,7 +96,7 @@ const Header = () => {
                   href="/"
                   onClick={handleHomeClick}
                   data-text="Home"
-                  className="text-outline hidden md:block text-white hover:text-customRed"
+                  className="text-outline hidden md:block text-white hover:text-strongRed"
                 >
                   Home
                 </a>
@@ -104,7 +104,7 @@ const Header = () => {
                   href="/portfolio/about"
                   onClick={handleAboutClick}
                   data-text="About"
-                  className="text-outline hidden md:block text-white hover:text-customRed"
+                  className="text-outline hidden md:block text-white hover:text-strongRed"
                 >
                   About
                 </a>
@@ -114,7 +114,7 @@ const Header = () => {
                     window.location.href = "#projects";
                   }}
                   data-text="Projects"
-                  className="text-outline hidden md:block  text-white text-outline  hover:text-customRed"
+                  className="text-outline hidden md:block  text-white text-outline  hover:text-strongRed"
                 >
                   Projects
                 </a>
@@ -124,7 +124,7 @@ const Header = () => {
                     window.location.href = "#contact";
                   }}
                   data-text="Contact"
-                  className="text-outline hidden md:block  text-white text-outline  hover:text-customRed"
+                  className="text-outline hidden md:block  text-white text-outline  hover:text-strongRed"
                 >
                   Contact
                 </a>
@@ -134,7 +134,7 @@ const Header = () => {
               <div
                 className={`${
                   isMenuOpen
-                    ? "md:hidden fixed top-0 left-0 w-screen h-screen bg-customRed text-start justify-start pl-10 z-10 flex flex-col gap-4 "
+                    ? "md:hidden fixed top-0 left-0 w-screen h-screen bg-strongRed text-start justify-start pl-10 z-10 flex flex-col gap-4 "
                     : "hidden"
                 }`}
               >
