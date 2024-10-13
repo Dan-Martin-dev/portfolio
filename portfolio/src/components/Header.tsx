@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import '/home/vare/project/landings_1/portfolio/portfolio/src/styles/Header.css'
+import "/home/vare/project/landings_1/portfolio/portfolio/src/styles/Header.css";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate(); // Hook for programmatic navigation
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const tl = useRef<gsap.core.Timeline | null>(null); // Initialize as null
   const container = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    
+
     if (!isMenuOpen) {
       // Slide the menu down when opened
       gsap.from(".menu-link-item-holder a", {
@@ -22,6 +24,14 @@ const Header = () => {
     }
   };
 
+  const handleAboutClick = (e:unknown) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    navigate("/portfolio/about"); // Navigate to the /portfolio/about route
+  };
+  const handleHomeClick = (e:unknown) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    navigate("/portfolio/"); // Navigate to the /portfolio/about route
+  };
   useEffect(() => {
     // Check if tl.current is initialized before playing or reversing
     if (tl.current) {
@@ -33,7 +43,6 @@ const Header = () => {
     }
   }, [isMenuOpen]);
 
-
   return (
     <nav
       className={`${
@@ -41,20 +50,20 @@ const Header = () => {
       }  fixed top-0 left-0 w-full bg-customRed font-bebas  z-10 sm:block md:static lg:static`}
     >
       <div ref={container} className="mx-auto lg:mx-0 px-5 sm:px-6 ">
-        
         {/* Container */}
         <div className="flex justify-between m-3 md:m-10 h-16 lg:m-13">
-
           {/* Title */}
           <div className="md:flex flex-center items-center">
-            <h1 data-text="Dan Martin" className="text-white text-outline text-5xl md:text-6xl lg:text-7xl font-semibold mt-5 md:mt-6 ">
+            <h1
+              data-text="Dan Martin"
+              className="text-white text-outline text-5xl md:text-6xl lg:text-7xl font-semibold mt-5 md:mt-6 "
+            >
               Dan Martin
             </h1>
           </div>
 
           {/* Categories */}
           <div className="flex lg:justify-end items-center space-x-9 ">
-
             {/* Hamburger Menu */}
             <button
               onClick={toggleMenu}
@@ -62,36 +71,40 @@ const Header = () => {
             >
               {/* Conditional rendering of Hamburger Icon or Close Icon */}
               {isMenuOpen ? (
-                <h1 data-text="CLOSE" className="text-2xl text-white font-bold text-outline mt-10">CLOSE</h1>
+                <h1
+                  data-text="CLOSE"
+                  className="text-2xl text-white font-bold text-outline mt-10"
+                >
+                  CLOSE
+                </h1>
               ) : (
-                <h1 data-text="MENU" className="text-2xl text-white font-bold text-outline mt-10">MENU</h1>
+                <h1
+                  data-text="MENU"
+                  className="text-2xl text-white font-bold text-outline mt-10"
+                >
+                  MENU
+                </h1>
               )}
             </button>
 
             {/* Full Screen Menu */}
             <div>
-
               {/* Desktop menu */}
               <div className="flex flex-col items-center  md:text-2xl lg:text-3xl xl:text-4xl xl md:mt-10 md:pr-5 md:flex md:flex-row md:space-y-0 md:space-x-10 md:static md:bg-transparent">
-                
                 {/* MD / LG menus */}
                 <a
-                  href="#home"
-                  onClick={() => {
-                    window.location.href = "#home";
-                  }}
-                  data-text="home"
-                  className="text-outline hidden md:block  text-white text-outline  hover:text-customRed"
+                  href="/"
+                  onClick={handleHomeClick}
+                  data-text="Home"
+                  className="text-outline hidden md:block text-white hover:text-customRed"
                 >
                   Home
                 </a>
                 <a
-                  href="#about"
-                  onClick={() => {
-                    window.location.href = "#about";
-                  }}
+                  href="/portfolio/about"
+                  onClick={handleAboutClick}
                   data-text="About"
-                  className="text-outline hidden md:block  text-white text-outline  hover:text-customRed"
+                  className="text-outline hidden md:block text-white hover:text-customRed"
                 >
                   About
                 </a>
@@ -101,7 +114,6 @@ const Header = () => {
                     window.location.href = "#projects";
                   }}
                   data-text="Projects"
-
                   className="text-outline hidden md:block  text-white text-outline  hover:text-customRed"
                 >
                   Projects
@@ -119,7 +131,7 @@ const Header = () => {
               </div>
 
               {/* Smart menu  */}
-              <div  
+              <div
                 className={`${
                   isMenuOpen
                     ? "md:hidden fixed top-0 left-0 w-screen h-screen bg-customRed text-start justify-start pl-10 z-10 flex flex-col gap-4 "
@@ -146,7 +158,7 @@ const Header = () => {
                     ABOUT
                   </a>
                   <a
-                    className="text-white text-7xl  font-normal mt-5 text-outline  cursor-pointer" 
+                    className="text-white text-7xl  font-normal mt-5 text-outline  cursor-pointer"
                     data-text="PROJECTS"
                     onClick={() => {
                       window.location.href = "#projects";
@@ -165,14 +177,10 @@ const Header = () => {
                   </a>
                 </div>
               </div>
-
             </div>
-
           </div>
-
         </div>
       </div>
-
     </nav>
   );
 };

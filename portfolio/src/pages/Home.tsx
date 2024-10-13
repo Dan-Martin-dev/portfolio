@@ -18,7 +18,7 @@ const Home: React.FC = () => {
 
     const setInitialPositions = () => {
       // Dynamically adjust the X position based on window width
-      if (window.innerWidth <= 375) {
+      if (window.innerWidth <= 360) {
         centerX = window.innerWidth * -1.5;
       } else if (window.innerWidth <= 390) {
         centerX = window.innerWidth * -1.4;
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
       } else if (window.innerWidth <= 1440) {
         centerX = window.innerWidth * 0.30;
       }else if (window.innerWidth <= 1920) {
-        centerX = window.innerWidth * 0.50;
+        centerX = window.innerWidth * 0.50; 
       }
 
       const items = gallery?.getElementsByClassName("item") || [];
@@ -116,6 +116,7 @@ const Home: React.FC = () => {
     console.log(imgSrc);
 
     const img = document.createElement("img");
+    img.className = "custom-image-class"; // Add your class here
     img.src = imgSrc;
     img.style.clipPath = "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"; // Initially hide the image
     cursorRef.current?.appendChild(img); // Add the image to the cursor
