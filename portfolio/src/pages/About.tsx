@@ -4,10 +4,10 @@ export default function About() {
 
   return (
     /* frame */
-    <div id="about" className="bg-strongRed mx-5 md:mx-28 lg:mx-48 p-6 rounded-lg shadow-lg mt-10 md:mt-0">
+    <div id="about" className="bg-strongRed mx-5 md:mx-28 lg:mx-48 p-6 mt-10 md:mt-0">
       
       {/* container */}
-      <div className="flex flex-col xl:flex-row xl:align-middle xl:justify-center xl:items-center text-white text-center xl:text-left p-6">
+      <div className="flex flex-col xl:flex-row xl:align-middle xl:justify-center xl:items-center text-white xl:text-left p-6">
 
         {/* Image and Name */}
         <div className="flex flex-col items-center">
@@ -24,13 +24,13 @@ export default function About() {
           {/* SM Name */}
           <div className='md:hidden p-4'>
             <h2 data-text='Dan Martin' className="text-5xl text-outliner font-bebas font-bold">Dan Martin</h2>
-            <h2  data-text='Web Developer' className="text-3xl text-outliner font-bebas font-bold">Web developer</h2>
+            <h2 data-text='Web Developer' className="text-3xl text-outliner font-bebas font-bold">Web developer</h2>
           </div>
 
         </div>
 
         {/* Description */}
-        <div className="">
+        <div>
 
           {/* LG Name */}
           <div className='hidden md:block p-4'>
