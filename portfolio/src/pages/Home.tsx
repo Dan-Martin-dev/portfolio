@@ -136,7 +136,7 @@ const Home: React.FC = () => {
       } else if (window.innerWidth <= 1520) {
         centerX = window.innerWidth * 0.3;
       } else if (window.innerWidth <= 1540) {
-        centerX = window.innerWidth *0.3;
+        centerX = window.innerWidth * 0.3;
       } else if (window.innerWidth <= 1560) {
         centerX = window.innerWidth * 0.3;
       } else if (window.innerWidth <= 1580) {
@@ -152,7 +152,7 @@ const Home: React.FC = () => {
       } else if (window.innerWidth <= 1680) {
         centerX = window.innerWidth * 0.3;
       } else if (window.innerWidth <= 1700) {
-        centerX = window.innerWidth *0.4;
+        centerX = window.innerWidth * 0.4;
       } else if (window.innerWidth <= 1720) {
         centerX = window.innerWidth * 0.4;
       } else if (window.innerWidth <= 1740) {
@@ -164,9 +164,9 @@ const Home: React.FC = () => {
       } else if (window.innerWidth <= 1800) {
         centerX = window.innerWidth * 0.4;
       } else if (window.innerWidth <= 1820) {
-        centerX = window.innerWidth *  0.4;
+        centerX = window.innerWidth * 0.4;
       } else if (window.innerWidth <= 1840) {
-        centerX = window.innerWidth *  0.4;
+        centerX = window.innerWidth * 0.4;
       }
       const items = gallery?.getElementsByClassName("item") || [];
       Array.from(items).forEach((item, index) => {
@@ -310,8 +310,15 @@ const Home: React.FC = () => {
                   className="text-outliner text-5xl text-white"
                   data-text={interior.name}
                 >
-                  {interior.name}{" "}
-                  <span>({Math.floor(Math.random() * 50) + 1})</span>
+                  <a
+                    href={interior.link} // Navigate to the specified link
+                    target="_blank" // Open in a new tab
+                    rel="noopener noreferrer" // Security measure
+                    className="" // Optional: Adds underline on hover
+                  >
+                    {interior.name}
+                  </a>
+                  <span></span>
                 </p>
               </div>
             );
