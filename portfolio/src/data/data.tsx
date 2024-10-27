@@ -1,6 +1,6 @@
 export const interiors = [
   { id: 1, name: "GILLIPODLE", link: 'https://dan-martin-dev.github.io/GILLIPODLE/#daily' },
-  { id: 2, name: "Freaky Encounter" },
+  { id: 2, name: "No-Brainer"},
   { id: 3, name: "Ecommerce Barnes Industries" },
   { id: 4, name: "Orange Bottle Plastic" },
   { id: 5, name: "Cut To The Chase" },
@@ -56,7 +56,8 @@ export const interiors = [
   { id: 55, name: "Losing Ground" },
   { id: 56, name: "Moving the Goalposts" },
   { id: 57, name: "Nose to the Grindstone" },
+
   { id: 58, name: "AKARU Menu", link: 'https://dan-martin-dev.github.io/AKARU/'},
-  { id: 59, name: "Pulling the Strings" },
+  { id: 59, name: "JUNNI Menu", link: 'https://dan-martin-dev.github.io/JUNNI-Menu/' },
   { id: 60, name: "Barnes Ecommerce" }
 ];
