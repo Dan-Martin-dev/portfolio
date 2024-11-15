@@ -109,16 +109,6 @@ const Header = () => {
                   About
                 </a>
                 <a
-                  href="#projects"
-                  onClick={() => {
-                    window.location.href = "#projects";
-                  }}
-                  data-text="Projects"
-                  className="text-outline hidden md:block  text-white text-outline  hover:text-strongRed"
-                >
-                  Projects
-                </a>
-                <a
                   href="#contact"
                   onClick={() => {
                     window.location.href = "#contact";
@@ -158,15 +148,6 @@ const Header = () => {
                     ABOUT
                   </a>
                   <a
-                    className="text-white text-7xl  font-normal mt-5 text-outline  cursor-pointer"
-                    data-text="PROJECTS"
-                    onClick={() => {
-                      window.location.href = "#projects";
-                    }}
-                  >
-                    PROJECTS
-                  </a>
-                  <a
                     className="text-white text-7xl  font-bold mt-5 text-outline  cursor-pointer"
                     data-text="CONTACT"
                     onClick={() => {
@@ -178,6 +159,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
