@@ -289,6 +289,7 @@ const Home: React.FC = () => {
       <div ref={cursorRef} className="cursor"></div> {/* Custom cursor area */}
       <div className="gallery-container">
         <div ref={galleryRef} className="gallery">
+          
           {interiors.map((interior, index) => {
             const angle = (index * (2 * Math.PI)) / interiors.length;
             const x = window.innerWidth * 0.25 + 1100 * Math.cos(angle); // Keep items on the left side
